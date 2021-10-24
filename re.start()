@@ -1,0 +1,14 @@
+import re
+
+st = input()
+sst = input()
+
+pattern = re.compile(sst)
+match = pattern.search(st)
+
+if not match: 
+    print('(-1, -1)')
+    
+while match:
+    print('({0}, {1})'.format(match.start(), match.end() - 1))
+    match = pattern.search(st, match.start() + 1)
